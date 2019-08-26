@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+	{% from "_macro.html" import render_field %}
+	<form action ="/update/{{contact.id}}" method="POST">
+	    <div class="form-group">
+	    	<input type="text" name="fullname" value="{{ contact.fullname }}">
+			<!--{{ render_field(form.fullname) }}-->
+		</div>
+		<div class="form-group">
+			<input type="text" name="phone" value="{{ contact.phone }}">
+			<!--{{ render_field(form.phone) }}-->
+		</div>
+		<div class="form-group">
+			<input type="text" name="email" value="{{ contact.email }}">
+			<!--{{ render_field(form.email) }}-->
+		</div>
+		<div class="form-group">
+			{{ form.submit() }}
+		</div>
+	</form>
+{% endblock %}
